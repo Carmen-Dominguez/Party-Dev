@@ -1,0 +1,50 @@
+// ============================================================
+// Design Tokens — Shirley's Party
+// Inspired by Vladimir Tretchikoff's sophisticated palette
+// ============================================================
+@use 'sass:color';
+
+// --- Colour Palette ---
+$gold: #ab9d03;
+$teal: #0a7261;
+$turquoise: #40e0bb;
+$wineRed: #611a22;
+$champagne: #F7E7CE;
+
+// Derived shades (using modern color.adjust instead of deprecated lighten/darken)
+$gold-light: color.adjust($gold, $lightness: 15%);
+$gold-dark: color.adjust($gold, $lightness: -25%);
+$teal-dark: color.adjust($teal, $lightness: -10%);
+$champagne-dark: color.adjust($champagne, $lightness: -8%);
+
+// Backgrounds
+$bg-dark: #0e0e0e;
+$bg-deep: #141414;
+$bg-section: #161616;
+
+// Text
+$text-primary: $champagne;
+$text-secondary: rgba($champagne, 0.72);
+$text-muted: rgba($champagne, 0.45);
+
+// --- Typography ---
+$font-serif: 'Cormorant Garamond', 'Georgia', serif;
+$font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+// --- Spacing scale ---
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 4rem;
+$space-xl: 6rem;
+$space-xxl: 10rem;
+
+// --- Breakpoints ---
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// --- Transitions ---
+$transition-base: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$transition-slow: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);

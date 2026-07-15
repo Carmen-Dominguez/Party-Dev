@@ -1,0 +1,39 @@
+// ============================================================
+// TV static overlay — animated feTurbulence noise
+// ============================================================
+@use 'variables' as *;
+
+$tv-static-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='2' stitchTiles='stitch'%3E%3Canimate attributeName='seed' dur='0.08s' values='0;1;2;3;4;5;6;7;8;9;10' repeatCount='indefinite'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+@mixin tv-static-layer {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  filter: contrast(170%) brightness(150%);
+  background-image: $tv-static-noise;
+  background-size: 180px 180px;
+}
+
+// Use when a pseudo-element slot is free
+@mixin tv-static-overlay($pseudo: before) {
+  @if $pseudo == before {
+    &::before {
+      @include tv-static-layer;
+    }
+  } @else if $pseudo == after {
+    &::after {
+      @include tv-static-layer;
+    }
+  }
+}
+
+// Use when both pseudo-elements are already taken (e.g. decorative lines)
+@mixin tv-static-background($direction, $from, $to) {
+  background-image: $tv-static-noise, linear-gradient($direction, $from, $to);
+  background-size: 180px 180px, auto;
+  background-blend-mode: overlay, normal;
+}

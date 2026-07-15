@@ -1,0 +1,146 @@
+// ============================================================
+// Location Section Styles
+// ============================================================
+@use '../styles/variables' as *;
+@use '../styles/tv-static' as *;
+
+.location {
+  background: linear-gradient(45deg, $teal-dark, $teal);
+  position: relative;
+
+  @include tv-static-overlay(after);
+}
+
+.location__card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: $space-lg;
+  margin-top: $space-lg;
+  padding: $space-lg $space-md;
+  border: 1px solid rgba($gold, 0.18);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transition: $transition-base;
+
+  &:hover, &:focus-visible {
+    transform: scale(1.05);
+  }
+
+  // Corner accents
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgba($gold, 0.5);
+    border-style: solid;
+  }
+
+  &::before {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+
+  &::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 1px 1px 0;
+  }
+
+  @media (max-width: $bp-md) {
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md $space-sm;
+  }
+}
+
+.location__block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.location__separator {
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(180deg, transparent, rgba($gold, 0.3), transparent);
+  align-self: center;
+  flex-shrink: 0;
+
+  @media (max-width: $bp-md) {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($gold, 0.3), transparent);
+  }
+}
+
+.location__label {
+  font-family: $font-sans;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: $space-xs;
+}
+
+.location__address {
+  font-family: $font-serif;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-style: normal;
+  color: $text-primary;
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.location__map-link {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $turquoise;
+  text-decoration: none;
+  margin-top: $space-xs;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    color: $turquoise;
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid $teal;
+    outline-offset: 4px;
+  }
+}
+
+.location__time {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 300;
+  color: $champagne;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.location__date {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $text-secondary;
+  text-transform: uppercase;
+  margin-top: $space-xs;
+}

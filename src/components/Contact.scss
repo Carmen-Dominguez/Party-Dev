@@ -1,0 +1,90 @@
+// ============================================================
+// Contact Section Styles
+// ============================================================
+@use '../styles/variables' as *;
+@use '../styles/tv-static' as *;
+
+.contact {
+  background: linear-gradient(-45deg, $teal, $teal-dark);
+  position: relative;
+
+  @include tv-static-overlay(after);
+
+  // Subtle top glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($gold, 0.4), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.contact__intro {
+  max-width: 480px;
+  margin: 0 auto $space-lg;
+}
+
+.contact__hosts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  margin: $space-md 0;
+}
+
+.contact__host {
+  text-align: center;
+}
+
+.contact__host-name {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: $champagne;
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+.contact__host-divider {
+  font-family: $font-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-style: italic;
+  color: $gold;
+  opacity: 0.65;
+}
+
+.contact__note {
+  max-width: 440px;
+  margin: 0 auto $space-lg;
+  font-size: 0.8rem;
+}
+
+.contact__footer-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  color: $gold;
+  opacity: 0.4;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  margin-top: $space-lg;
+  margin-bottom: $space-sm;
+}
+
+.contact__copyright {
+  font-family: $font-sans;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: $text-muted;
+  text-transform: uppercase;
+  margin-top: $space-sm;
+}

@@ -1,2 +1,2 @@
-# Party-Dev
-Project to showcase interactive simple website
+# Shirleys-Party
+Brochure site to invite people to Shirley's Party
