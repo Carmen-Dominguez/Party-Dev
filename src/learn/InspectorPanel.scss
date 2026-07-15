@@ -1,0 +1,355 @@
+@use '../styles/variables' as *;
+
+.inspector {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  height: 100%;
+  min-height: 0;
+  padding: $space-sm;
+  background: $bg-deep;
+  border-left: 1px solid rgba($gold, 0.25);
+  color: $text-primary;
+  overflow: auto;
+}
+
+.inspector__empty {
+  margin: auto;
+  text-align: center;
+  padding: $space-md;
+  max-width: 20rem;
+}
+
+.inspector__empty-title {
+  font-family: $font-serif;
+  font-size: 1.4rem;
+  margin-bottom: $space-xs;
+  color: $champagne;
+}
+
+.inspector__empty-body {
+  font-size: 0.85rem;
+  color: $text-secondary;
+}
+
+.inspector__header {
+  text-align: left;
+}
+
+.inspector__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: 0.25rem;
+}
+
+.inspector__title {
+  font-family: $font-serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: $champagne;
+  margin-bottom: $space-xs;
+}
+
+.inspector__analogy {
+  font-size: 0.85rem;
+  color: $text-secondary;
+  line-height: 1.5;
+}
+
+.inspector__tabs {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.inspector__tab {
+  flex: 1;
+  min-width: 4.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.5rem;
+  border: 1px solid rgba($champagne, 0.2);
+  background: transparent;
+  color: $text-secondary;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $gold;
+    color: $champagne;
+  }
+
+  &.is-active {
+    background: rgba($gold, 0.15);
+    border-color: $gold;
+    color: $champagne;
+  }
+}
+
+.inspector__controls {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  padding: $space-sm;
+  background: rgba($champagne, 0.04);
+  border: 1px solid rgba($champagne, 0.12);
+}
+
+.inspector__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $text-muted;
+
+  input[type='text'] {
+    font-family: $font-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba($gold, 0.35);
+    background: $bg-dark;
+    color: $champagne;
+    outline: none;
+
+    &:focus {
+      border-color: $gold;
+    }
+  }
+
+  select {
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba($gold, 0.35);
+    background: $bg-dark;
+    color: $champagne;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: $gold;
+    }
+  }
+
+  input[type='color'] {
+    width: 2.75rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid rgba($gold, 0.35);
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+.inspector__field--inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inspector__slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+
+  em {
+    font-style: normal;
+    font-family: ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: $gold-light;
+  }
+}
+
+.inspector__field input[type='range'] {
+  width: 100%;
+  accent-color: $gold;
+  cursor: pointer;
+}
+
+.inspector__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $text-secondary;
+  cursor: pointer;
+
+  input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: $gold;
+    cursor: pointer;
+  }
+}
+
+.inspector__hint {
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: $turquoise;
+  line-height: 1.4;
+}
+
+.inspector__swatch-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.inspector__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.inspector__swatch {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid rgba($champagne, 0.25);
+  border-radius: 0;
+  cursor: pointer;
+  transition: $transition-base;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $gold;
+    transform: scale(1.06);
+  }
+
+  &.is-active {
+    border-color: $champagne;
+    box-shadow: 0 0 0 2px $gold;
+  }
+}
+
+.inspector__code-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-height: 10rem;
+}
+
+.inspector__code-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.inspector__code {
+  flex: 1;
+  min-height: 10rem;
+  width: 100%;
+  resize: vertical;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  padding: 0.75rem;
+  border: 1px solid rgba($champagne, 0.15);
+  background: #0a1210;
+  color: $champagne;
+  outline: none;
+
+  &:focus:not([readonly]) {
+    border-color: $gold;
+  }
+
+  &[readonly] {
+    opacity: 0.85;
+    cursor: default;
+  }
+}
+
+.inspector__more {
+  font-size: 0.85rem;
+  color: $text-secondary;
+
+  summary {
+    cursor: pointer;
+    color: $gold-light;
+    letter-spacing: 0.04em;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: '▸ ';
+    }
+  }
+
+  &[open] summary::before {
+    content: '▾ ';
+  }
+
+  p {
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+}
+
+.inspector__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: $space-xs;
+}
+
+.inspector__reset,
+.inspector__nav {
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba($champagne, 0.25);
+  background: transparent;
+  color: $text-secondary;
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $gold;
+    color: $champagne;
+  }
+}
+
+.inspector__nav--next {
+  margin-left: auto;
+  border-color: rgba($gold, 0.45);
+  color: $champagne;
+}
+
+@media (max-width: $bp-md) {
+  .inspector {
+    border-left: none;
+    border-top: 1px solid rgba($gold, 0.25);
+    max-height: 50vh;
+  }
+}

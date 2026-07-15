@@ -1,0 +1,40 @@
+@use '../styles/variables' as *;
+
+.tour-banner {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-xs;
+  padding: 0.65rem $space-sm;
+  background: $bg-deep;
+  border-bottom: 1px solid rgba($gold, 0.35);
+}
+
+.tour-banner__text {
+  font-size: 0.8rem;
+  color: $text-secondary;
+  max-width: 40rem;
+  line-height: 1.4;
+}
+
+.tour-banner__btn {
+  border: 1px solid $gold;
+  background: rgba($gold, 0.12);
+  color: $champagne;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba($gold, 0.25);
+  }
+}

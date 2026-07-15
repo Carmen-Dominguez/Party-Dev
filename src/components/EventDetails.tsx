@@ -11,7 +11,7 @@ const EventDetails: React.FC = () => {
       <div className="section__inner">
         <span className="section__overline">The Evening</span>
         <h2 className="section__heading" id="event-details-heading">
-          A Night of Elegance
+          A Night of Fun!
         </h2>
 
         <div className="divider" aria-hidden="true" />

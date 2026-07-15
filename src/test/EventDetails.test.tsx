@@ -7,7 +7,7 @@ vi.mock('../components/EventDetails.scss', () => ({}));
 describe('EventDetails', () => {
   it('renders the section heading', () => {
     render(<EventDetails />);
-    expect(screen.getByText(/A Night of Elegance/i)).toBeInTheDocument();
+    expect(screen.getByText(/A Night of Fun!/i)).toBeInTheDocument();
   });
 
   it('renders the date information', () => {

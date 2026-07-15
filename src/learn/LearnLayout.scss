@@ -1,0 +1,190 @@
+@use '../styles/variables' as *;
+
+.learn-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $bg-dark;
+  color: $text-primary;
+}
+
+.learn-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+  padding: 0.75rem $space-sm;
+  background: linear-gradient(90deg, $teal-dark, $bg-deep);
+  border-bottom: 1px solid rgba($gold, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.learn-header__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.learn-header__kicker {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $gold;
+}
+
+.learn-header__name {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: $champagne;
+  letter-spacing: 0.04em;
+}
+
+.learn-header__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.learn-toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid rgba($champagne, 0.2);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.learn-toggle__btn {
+  border: none;
+  background: transparent;
+  color: $text-muted;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &.is-active {
+    background: rgba($gold, 0.2);
+    color: $champagne;
+  }
+
+  &:hover:not(.is-active),
+  &:focus-visible:not(.is-active) {
+    color: $champagne;
+  }
+}
+
+.learn-header__xray {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-secondary;
+  cursor: pointer;
+
+  input {
+    accent-color: $gold;
+  }
+}
+
+.learn-header__lesson-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.15rem;
+}
+
+.learn-lessons {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.learn-lessons__btn {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid rgba($champagne, 0.25);
+  background: transparent;
+  color: $text-muted;
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &.is-active {
+    border-color: $gold;
+    background: rgba($gold, 0.2);
+    color: $champagne;
+  }
+
+  &:hover:not(.is-active),
+  &:focus-visible:not(.is-active) {
+    border-color: $gold;
+    color: $champagne;
+  }
+}
+
+.learn-header__lesson {
+  flex: 1;
+  min-width: 12rem;
+  font-size: 0.8rem;
+  color: $text-secondary;
+  line-height: 1.4;
+
+  strong {
+    color: $turquoise;
+    font-weight: 500;
+  }
+}
+
+.learn-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+  flex: 1;
+  min-height: 0;
+}
+
+.preview-sandbox {
+  position: relative;
+  min-height: 55vh;
+  background: $teal-dark;
+  border-right: 1px solid rgba($gold, 0.15);
+}
+
+.preview-sandbox__frame {
+  width: 100%;
+  height: 100%;
+  min-height: 55vh;
+  border: 0;
+  display: block;
+  background: $teal;
+}
+
+@media (max-width: $bp-md) {
+  .learn-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(40vh, 1fr) auto;
+  }
+
+  .preview-sandbox {
+    border-right: none;
+    min-height: 40vh;
+  }
+
+  .preview-sandbox__frame {
+    min-height: 40vh;
+  }
+
+  .learn-header__xray {
+    display: none;
+  }
+}
