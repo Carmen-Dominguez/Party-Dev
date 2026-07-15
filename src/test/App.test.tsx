@@ -79,6 +79,20 @@ describe('App', () => {
     expect(css).toMatch(/font-style:\s*italic/);
   });
 
+  it('shows learn-lab hero changes on the finished party tour', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const firstLine = screen.getByLabelText(/first line of the name/i);
+    await user.clear(firstLine);
+    await user.type(firstLine, 'Maya');
+
+    await user.click(screen.getByRole('button', { name: /see finished party/i }));
+
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Maya');
+    expect(screen.getByRole('button', { name: /^RSVP$/i })).toBeInTheDocument();
+  });
+
   it('opens lesson 3 and updates the RSVP alert message', async () => {
     const user = userEvent.setup();
     render(<App />);

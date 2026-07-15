@@ -12,6 +12,14 @@
   position: relative;
   background: linear-gradient(45deg, $teal-dark, $teal);
 
+  &.hero--customized {
+    background: linear-gradient(
+      45deg,
+      var(--hero-bg-dark, #{$teal-dark}),
+      var(--hero-bg, #{$teal})
+    );
+  }
+
   @include tv-static-overlay;
 
   // Subtle radial glow at centre
@@ -69,6 +77,17 @@
     font-size: 0.85em;
     font-weight: 300;
   }
+
+  .hero--customized & {
+    font-size: var(--hero-title-size, clamp(3.5rem, 12vw, 7.5rem));
+    font-style: var(--hero-title-style, normal);
+    color: var(--hero-title-color, #{$champagne});
+
+    em {
+      font-style: var(--hero-title-style, italic);
+      color: var(--hero-accent-color, #{$gold});
+    }
+  }
 }
 
 .hero__date {
@@ -88,6 +107,29 @@
   color: $champagne-dark;
   opacity: 0.85;
   margin-bottom: $space-md;
+}
+
+.hero__rsvp {
+  display: inline-block;
+  margin: 0 0 $space-sm;
+  padding: 0.75rem 1.6rem;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $bg-dark;
+  background: $gold;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    background: $gold-light;
+    transform: scale(1.04);
+    outline: none;
+  }
 }
 
 .hero__border {

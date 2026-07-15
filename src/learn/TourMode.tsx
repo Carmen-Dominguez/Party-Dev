@@ -6,22 +6,22 @@ import DressCode from '../components/DressCode';
 import Location from '../components/Location';
 import Contact from '../components/Contact';
 import ArtDivider from '../components/ArtDivider';
-import { useLearn } from '../learn/LearnContext';
+import { useLearn } from './LearnContext';
 import './TourMode.scss';
 
 /**
- * Original dinner-party brochure, with a banner to return to Learn mode.
+ * Dinner-party brochure using learn-lab customizations on the hero.
  */
 const TourMode: React.FC = () => {
-  const { setView, ageMode } = useLearn();
+  const { setView, ageMode, heroState } = useLearn();
 
   return (
     <>
       <div className="tour-banner">
         <p className="tour-banner__text">
           {ageMode === 'young'
-            ? 'This is the finished party page — made with HTML, CSS, and a little JavaScript.'
-            : 'Tour the finished invitation. Every section is HTML structure + CSS style.'}
+            ? 'Your party page — with the changes you made in the lab!'
+            : 'The finished invitation, including your hero customizations from Learn mode.'}
         </p>
         <button
           type="button"
@@ -33,7 +33,7 @@ const TourMode: React.FC = () => {
       </div>
 
       <main className="app">
-        <Hero />
+        <Hero customization={heroState} />
         <ArtDivider priority crop="center 28%" />
         <EventDetails />
         <ArtDivider crop="center 32%" />
